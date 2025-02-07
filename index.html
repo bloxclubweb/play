@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BLOXCLUB</title>
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const id = params.get("id");
+
+        if (id) {
+            window.location.href = `roblox://placeId=${id}`;
+        } else {
+            window.location.href = "https://www.roblox.com";
+        }
+    </script>
+    <style>
+        body {
+            background-color: black;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+</body>
+</html>
