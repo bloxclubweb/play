@@ -3,75 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BLOXCLUB</title>
+    <title>Redirecionando...</title>
     <script>
-        function openRoblox(id) {
-            const robloxUrl = `roblox://placeId=${id}`;
-            const fallbackUrl = "https://www.roblox.com/download"; // Link para baixar o Roblox
-
-            let startTime = Date.now();
-            let timeout = setTimeout(() => {
-                let elapsedTime = Date.now() - startTime;
-                if (elapsedTime < 2000) { // Se demorou menos que 2s, provavelmente não abriu
-                    window.location.href = fallbackUrl;
-                }
-            }, 1500);
-
-            window.location.href = robloxUrl;
-
-            // Cancela o timeout se o usuário sair da página (indicando que o Roblox abriu)
-            window.addEventListener("blur", () => clearTimeout(timeout));
-        }
-
         window.onload = () => {
             const params = new URLSearchParams(window.location.search);
             const id = params.get("id");
 
             if (id) {
-                openRoblox(id);
+                const robloxUrl = `roblox://placeId=${id}`;
+                const webUrl = `https://www.roblox.com/games/${id}`;
+
+                let startTime = Date.now();
+                let timeout = setTimeout(() => {
+                    let elapsedTime = Date.now() - startTime;
+                    if (elapsedTime < 2000) { // Se demorou menos que 2s, provavelmente não abriu
+                        window.location.href = webUrl;
+                    }
+                }, 1500);
+
+                window.location.href = robloxUrl;
+
+                // Cancela o timeout se o usuário sair da página (indicando que o Roblox abriu)
+                window.addEventListener("blur", () => clearTimeout(timeout));
             }
         };
     </script>
-    <style>
-        body {
-            background-color: black;
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            flex-direction: column;
-            text-align: center;
-        }
-        svg {
-            width: 120px;
-            height: 120px;
-            fill: white;
-        }
-        p {
-            color: white;
-            font-family: Arial, sans-serif;
-            font-size: 14px;
-            margin-top: 15px;
-        }
-        .download-btn {
-            margin-top: 20px;
-            padding: 10px 20px;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 14px;
-            text-decoration: none;
-        }
-    </style>
 </head>
 <body>
-    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="720px" height="720px" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd" xmlns:xlink="http://www.w3.org/1999/xlink">  
-        <g><path d="M 235.5,111.5 C 244.968,110.989 254.301,111.822 263.5,114C 365.418,141.646 467.418,168.979 569.5,196C 597.252,205.66 609.752,225.16 607,254.5C 578.428,361.827 549.761,468.827 521,575.5C 507.342,603.074 485.508,612.907 455.5,605C 353.582,577.354 251.582,550.021 149.5,523C 117.81,511.126 105.977,488.626 114,455.5C 141.646,353.582 168.979,251.582 196,149.5C 202.219,129.444 215.386,116.778 235.5,111.5 Z M 324.5,289.5 C 357.878,296.928 390.878,305.761 423.5,316C 429.558,320.933 431.058,327.1 428,334.5C 420.127,364.328 411.794,393.994 403,423.5C 398.281,429.138 392.447,430.638 385.5,428C 355.307,420.286 325.307,411.952 295.5,403C 289.708,397.998 288.208,391.831 291,384.5C 298.87,354.684 307.204,325.017 316,295.5C 318.21,292.432 321.043,290.432 324.5,289.5 Z"/></g>  
-    </svg>
-    <p>Não foi possível identificar nenhum jogo para abrir o Roblox</p>
-    <a href="https://www.roblox.com/download" class="download-btn">Baixar o Roblox</a>
 </body>
 </html>
