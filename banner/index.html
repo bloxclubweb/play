@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecionando...</title>
+    <script>
+        function getParameterByName(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+
+        const gameId = getParameterByName('id');
+
+        if (gameId) {
+            const bannerUrl = `https://tr.rbxcdn.com/${gameId}.png`;
+
+            window.location.href = bannerUrl;
+        } else {
+            document.write("<h1>Erro: Nenhum ID foi fornecido!</h1>");
+        }
+    </script>
+</head>
+<body>
+</body>
+</html>
